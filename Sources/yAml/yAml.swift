@@ -2,24 +2,38 @@
 // https://docs.swift.org/swift-book
 import Parsing
 
-let Block = Parse { "- " }
+enum Elements {
+    case blockStart 
+    case mappingMarker
+    case commentStart
+    case separatorMarker
+    case endOfDocumentMarker
+    case anchorMarker
+    case aliasMarker
+    case complexMappingStart
+    case literalStyleMarker
+    case foldedStyleMarker
+    case tagMarker
+}
 
-let Mapping = Parse { ": " }
+let BlockElementStart = Parse { "- " }.map { Elements.blockStart }
 
-let Comment = Parse { "#" }
+let MappingMarker = Parse { ": " }.map { Elements.mappingMarker }
 
-let Separator = Parse { "---" }
+let CommentStart = Parse { "#" }.map { Elements.commentStart }
 
-let EndOfDocument = Parse { "..." }
+let SeparatorMarker = Parse { "---" }.map { Elements.separatorMarker }
 
-let Anchor = Parse { "&" }
+let EndOfDocumentMarker = Parse { "..." }.map { Elements.endOfDocumentMarker }
 
-let Alias = Parse { "*" }
+let AnchorMarker = Parse { "&" }.map { Elements.anchorMarker }
 
-let ComplexMapping = Parse { "? " }
+let AliasMarker = Parse { "*" }.map { Elements.aliasMarker }
 
-let LiteralStyle = Parse { "|" }
+let ComplexMappingStart = Parse { "? " }.map { Elements.complexMappingStart }
 
-let FoldedStyle = Parse { ">" }
+let LiteralStyleMarker = Parse { "|" }.map { Elements.literalStyleMarker }
 
-let Tag = { "!" }
+let FoldedStyleMarker = Parse { ">" }.map { Elements.foldedStyleMarker }
+
+let TagMarker = Parse { "!" }.map { Elements.tagMarker }
