@@ -17,6 +17,6 @@ let package = Package(
     ],
     targets: [
         .target(name: "yAml", dependencies: [.product(name: "Parsing", package: "swift-parsing")]),
-        .testTarget(name: "LibTests", dependencies: ["yAml", "Nimble"])
+        .testTarget(name: "yAmlTests", dependencies: ["yAml", "Nimble"])
     ]
 )
