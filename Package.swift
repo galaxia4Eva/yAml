@@ -5,17 +5,18 @@ import PackageDescription
 
 let package = Package(
     name: "yAml",
-    platforms:[
+    platforms: [
         .macOS(.v10_15)
     ],
     products: [
         .library(name: "yAml", targets: ["yAml"])
     ],
     dependencies: [
-        .package(url: "https://github.com/pointfreeco/swift-parsing.git", from: "0.12.1")
+        .package(url: "https://github.com/pointfreeco/swift-parsing.git", from: "0.12.1"),
+        .package(url: "https://github.com/Quick/Nimble.git", from: "12.0.1")
     ],
     targets: [
-        .target(name: "yAml",dependencies: [.product(name: "Parsing", package: "swift-parsing")]),
-        .testTarget(name: "yAmlTests", dependencies: ["yAml"]),
+        .target(name: "yAml", dependencies: [.product(name: "Parsing", package: "swift-parsing")]),
+        .testTarget(name: "yAmlTests", dependencies: ["yAml", "Nimble"])
     ]
 )
