@@ -2,8 +2,8 @@ import XCTest
 import Nimble
 @testable import yAml
 
-final class ElementsTest: XCTestCase {
-    
+final class ElementParsersTests: XCTestCase {
+
     func testParsesBlockElementStart() throws {
         let input = "- "
         let result = try BlockElementStart.parse(input[...])
