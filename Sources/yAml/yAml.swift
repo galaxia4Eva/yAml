@@ -3,7 +3,7 @@
 import Parsing
 
 enum Elements {
-    case blockStart 
+    case blockStart
     case mappingMarker
     case commentStart
     case separatorMarker
