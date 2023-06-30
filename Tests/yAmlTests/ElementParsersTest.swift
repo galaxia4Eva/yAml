@@ -6,13 +6,13 @@ final class ElementParsersTests: XCTestCase {
 
     func testParsesBlockElementStart() throws {
         let input = "- "
-        let result = try BlockElementStart.parse(input[...])
+        let result = try BlockElementStart.parse(input)
         expect(result).to(equal(Elements.blockStart))
     }
 
     func testParseMappingMarker() throws {
         let input = ": "
-        let result = try MappingMarker.parse(input[...])
+        let result = try MappingMarker.parse(input)
         expect(result).to(equal(Elements.mappingMarker))
     }
 
@@ -48,19 +48,19 @@ final class ElementParsersTests: XCTestCase {
 
     func testLiteralStyleMarker() throws {
         let input = "|"
-        let result = try LiteralStyleMarker.parse(input[...])
+        let result = try LiteralStyleMarker.parse(input)
         expect(result).to(equal(Elements.literalStyleMarker))
     }
 
     func testFoldedStyleMarker() throws {
         let input = ">"
-        let result = try FoldedStyleMarker.parse(input[...])
+        let result = try FoldedStyleMarker.parse(input)
         expect(result).to(equal(Elements.foldedStyleMarker))
     }
 
     func testTagMarker() throws {
         let input = "!"
-        let result = try TagMarker.parse(input[...])
+        let result = try TagMarker.parse(input)
         expect(result).to(equal(Elements.tagMarker))
     }
 }
