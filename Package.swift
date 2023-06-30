@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "yAml",
     platforms: [
-        .macOS(.v13)
+        .macOS(.v10_15)
     ],
     products: [
         .library(name: "yAml", targets: ["yAml"])
